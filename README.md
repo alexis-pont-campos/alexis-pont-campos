@@ -1,3 +1,47 @@
+### Alexis Pont-Campos
+
+I work on mathematical modelling, optimal control and scientific computing.
+
+MSc in Mathematical Modelling and Applied Analysis (Université Savoie Mont-Blanc).
+I spent a year in industry building a differentiable simulation and model predictive
+control prototype in Python/JAX — deriving the model, implementing the solver, and
+finding out where the two disagree.
+
+Mostly interested in problems where a physical model, an optimisation problem and
+working code have to be made to fit together.
+
+---
+
+**Projects**
+
+- [image-processing](https://github.com/YOUR-USERNAME/image-processing) — classical
+  image processing algorithms implemented from scratch in NumPy: filtering and
+  denoising, segmentation, mathematical morphology, edge detection.
+
+<!-- ▼ Ajoute une ligne par nouveau dépôt, même format : nom — une phrase, méthodes nommées. ▼ -->
+
+<details>
+<summary>Tools and topics</summary>
+
+**Languages** — Python, C++, R, Matlab, SQL, LaTeX
+**Scientific Python** — NumPy, SciPy, JAX, scikit-learn, OpenCV, Matplotlib
+**Topics** — optimal control, model predictive control, automatic differentiation,
+convex and non-convex optimisation, PDE modelling, image processing
+
+</details>
+
+---
+
+Based in Rhône-Alpes, France. Open to engineering and research positions, and to PhD
+projects (including CIFRE), in modelling, scientific computing and image processing.
+
+📫 alexispontc@gmai.com
+
+
+
+
+
+
 # Image Processing
 
 Classical image processing algorithms implemented from scratch in Python — filtering and denoising, segmentation, mathematical morphology, and edge detection.
