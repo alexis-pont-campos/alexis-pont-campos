@@ -35,7 +35,7 @@ convex and non-convex optimisation, PDE modelling, image processing
 Based in Rhône-Alpes, France. Open to engineering and research positions, and to PhD
 projects (including CIFRE), in modelling, scientific computing and image processing.
 
-📫 your.email@example.com
+📫 alexispontc@gmai.com
 
 
 
