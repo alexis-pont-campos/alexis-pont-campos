@@ -20,7 +20,7 @@ Each folder is a self-contained study: the problem, the method, the implementati
 
 | Study | What it does | Key methods |
 |---|---|---|
-| [01 — Filtering & denoising](01-filtering-and-denoising/) | Removing noise while preserving edges | Gaussian and median filters, bilateral filter, Fourier-domain filtering |
+| [01 — Filtering & denoising](01-filtering-and-denoising.md/) | Removing noise while preserving edges | Gaussian and median filters, bilateral filter, Fourier-domain filtering |
 | [02 — Segmentation](02-segmentation/) | Partitioning an image into meaningful regions | Otsu thresholding, region growing, k-means, watershed |
 | [03 — Mathematical morphology](03-mathematical-morphology/) | Shape-based analysis of binary and grayscale images | Erosion, dilation, opening/closing, skeletonization, granulometry |
 | [04 — Edge detection](04-edge-detection/) | Locating and characterizing intensity discontinuities | Sobel and Prewitt operators, Laplacian of Gaussian, Canny |
