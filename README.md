@@ -35,7 +35,7 @@ convex and non-convex optimisation, PDE modelling, image processing
 Based in Rhône-Alpes, France. Open to engineering and research positions, and to PhD
 projects (including CIFRE), in modelling, scientific computing and image processing.
 
-📫 alexispontc@gmai.com
+📫 alexispontc@gmail.com
 
 
 
@@ -65,9 +65,9 @@ Each folder is a self-contained study: the problem, the method, the implementati
 | Study | What it does | Key methods |
 |---|---|---|
 | [01 — Filtering & denoising](01-filtering-and-denoising/) | Removing noise while preserving edges | Gaussian and median filters, bilateral filter, Fourier-domain filtering |
-| [02 — Segmentation](02-segmentation/) | Partitioning an image into meaningful regions | Otsu thresholding, region growing, k-means, watershed |
-| [03 — Mathematical morphology](03-mathematical-morphology/) | Shape-based analysis of binary and grayscale images | Erosion, dilation, opening/closing, skeletonization, granulometry |
-| [04 — Edge detection](04-edge-detection/) | Locating and characterizing intensity discontinuities | Sobel and Prewitt operators, Laplacian of Gaussian, Canny |
+| [02 — Traveller problem](traveller/) | | |
+| [03 — Other graphs optimisation problems](graphs/) | | |
+
 
 ---
 
