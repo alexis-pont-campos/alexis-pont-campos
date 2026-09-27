@@ -3,8 +3,9 @@
 An introduction to deep learning through image processing. The classical operators —
 convolution, morphology, Sobel, Hough, Tikhonov and Wiener, the JPEG transform — are
 implemented from their mathematical definitions in NumPy, and each one is paired with the
-deep-learning layer or idea it became. A single algorithm is imported rather than
-rewritten: a pretrained depth network, the starting point of the mini-project.
+deep-learning layer or idea it became. Only two algorithms are imported rather than
+rewritten, both pretrained depth networks for the mini-project; the third depth source it
+compares them with, depth from focus, is written from scratch.
 
 **→ [`filtering_and_denoising.ipynb`](filtering_and_denoising.ipynb)** — the notebook
 renders directly on GitHub, figures and outputs included. Nothing to install to read it.
@@ -20,7 +21,7 @@ renders directly on GitHub, figures and outputs included. Nothing to install to 
 | 3 | Finding edges — and learning the filter that finds them | Sobel gradient, magnitude and orientation; a 3×3 kernel fitted by gradient descent |
 | 4 | Finding straight lines | Hough voting in (ρ, θ), peaks by non-maximum suppression |
 | 5 | Undoing a blur without amplifying the noise | Tikhonov in Fourier, Wiener as the minimum mean-square-error filter, Wiener derived as Tikhonov with the noise-to-signal ratio as penalty, power-law image prior |
-| 6 | Mini-project: moving the focus of a photo after it was taken | Monocular depth (MiDaS) → 3-D point cloud → novel views by z-buffer splatting → thin-lens circle of confusion, layered bokeh |
+| 6 | Mini-project: moving the focus of a photo after it was taken | Depth from three sources — MiDaS (CNN), Depth Anything V2 (vision transformer), depth from focus (blur only) → 3-D point cloud → novel views by z-buffer splatting → thin-lens circle of confusion, layered bokeh |
 | 7 | Compressing an image | 8×8 DCT-II, IJG quantisation tables, rate vs distortion |
 | 8 | Bonus: colour and the "HDR" look | sRGB and linear light, luminance, histogram equalisation per channel, on luminance, and local (CLAHE) |
 
@@ -43,7 +44,7 @@ truth.
 | 3 | Sobel returns the exact slopes of a linear ramp; gradient descent on (noise, Sobel(noise)) pairs recovers the kernel to 10⁻⁶ |
 | 4 | Four synthetic lines found at their exact `(ρ, θ)`, each peak equal to the line's pixel count; accumulator bit-identical to `skimage.transform.hough_line` |
 | 5 | Fourier Tikhonov = dense solve of the normal equations; Wiener with a prior fitted on the degraded image alone reaches 26.64 dB vs 26.62 dB for the best hand-tuned λ (degraded 23.49 dB, oracle ceiling 27.13 dB) |
-| 6 | Predicted inverse depth vs stereo ground truth: Pearson r = 0.825; projection ∘ back-projection = identity; zero aperture returns the photo; the patch at the focus point comes back unchanged while the other keeps 16–38 % of its sharpness |
+| 6 | Inverse depth vs stereo ground truth, Pearson r: MiDaS 0.825, Depth Anything V2 0.979, depth from focus 0.912 (0.967 away from depth edges, median error 3.2 cm); projection ∘ back-projection = identity; zero aperture returns the photo; the patch at the focus point comes back unchanged while the other keeps 16–38 % of its sharpness |
 | 7 | DCT matrix orthonormal and equal to `scipy.fft.dctn`; PSNR within 0.011 dB of Pillow/libjpeg from q = 5 to 95 |
 | 8 | Equalised luminance uniform (Kolmogorov distance 0.003); matches `skimage.exposure.equalize_hist` to 0.01 |
 
@@ -69,6 +70,11 @@ in equal steps of `1/Z`. Each layer is blurred in gamma-decoded values with prem
 alpha and composited back to front: highlights bloom into discs, and a blurred
 foreground spills over the background, never the reverse.
 
+**Depth from focus is built from the earlier sections.** Sharpness is the Sobel energy
+of §3 summed with the convolution of §1; the peak between two shots comes from a parabola
+through the log-sharpness; outliers go through a 7×7 median, the order statistic between
+the erosion and the dilation of §2. The focal stack it reads is shot with the lens of §6.
+
 **Matching the reference, not approximating it.** The Hough accumulator reproduces
 scikit-image's angle grid, offset and rounding, so the two agree bit for bit. The JPEG
 codec uses the same IJG quality scaling as libjpeg, so the PSNR matches Pillow at every
@@ -83,11 +89,12 @@ pip install numpy scipy matplotlib scikit-image pillow pooch onnxruntime
 jupyter notebook filtering_and_denoising.ipynb
 ```
 
-On first run, §6 downloads the MiDaS v2.1 small weights (67 MB in ONNX format, cached by
-`pooch`) and the Middlebury motorcycle pair (cached by scikit-image). `onnxruntime` runs
-the network on CPU — no PyTorch, no GPU — and is only needed for §6. `scipy` and Pillow
-are only used as references; scikit-image supplies the test images, the resize around
-the network, and CLAHE. The whole notebook runs in under a minute on a laptop.
+On first run, §6 downloads the MiDaS v2.1 small and Depth Anything V2 small weights (67 MB
+and 99 MB in ONNX format, cached by `pooch`) and the Middlebury motorcycle pair (cached by
+scikit-image). `onnxruntime` runs the networks on CPU — no PyTorch, no GPU — and is only
+needed for §6. `scipy` and Pillow are only used as references; scikit-image supplies the
+test images, the resize around the networks, and CLAHE. The whole notebook runs in about
+a minute on a laptop.
 
 ---
 
@@ -97,9 +104,11 @@ Filters run as sliding windows, `O(k²)` per pixel; for large kernels the FFT pa
 wins, and the two agree. The Hough transform finds infinite lines only — no segments, no
 probabilistic variant. Section 5 assumes periodic boundaries and a known blur and noise
 level; the oracle Wiener uses the clean image's spectrum and is only there as a ceiling.
-MiDaS predicts inverse depth up to scale and shift, so the 1.5–4.5 m range is chosen,
-not measured; the renderer does not inpaint what the foreground hides, which is where
-the novel views leave holes. The JPEG codec is grayscale, without chroma subsampling or
+The networks predict inverse depth up to scale and shift, so the 1.5–4.5 m range is
+chosen, not measured; the renderer does not inpaint what the foreground hides, which is
+where the novel views leave holes. No real focal stack exists for the motorcycle, so depth
+from focus reads one rendered from the stereo ground truth: a perfect lens with known
+focus distances, no focus breathing and no misalignment between shots. The JPEG codec is grayscale, without chroma subsampling or
 entropy coding — file sizes come from Pillow. CLAHE is imported from scikit-image.
 
 The thread worth pulling: every restoration in §5 is one fixed linear layer whose
@@ -110,5 +119,7 @@ Stack such layers with non-linearities — the max of §2 is one — and train t
 ---
 
 The methods are classical. The test images come from scikit-image's `data` module — the
-motorcycle and its ground-truth disparity from the Middlebury 2014 stereo dataset — and
-the depth network is MiDaS v2.1 small (Ranftl et al., 2020).
+motorcycle and its ground-truth disparity from the Middlebury 2014 stereo dataset. The
+depth networks are MiDaS v2.1 small (Ranftl et al., 2020) and Depth Anything V2 small
+(Yang et al., 2024), the latter through the ONNX export of the Depth-Anything-ONNX
+project.
