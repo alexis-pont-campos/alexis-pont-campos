@@ -121,21 +121,6 @@ Figures are written to the `figures/` folder of the corresponding study.
 
 ---
 
-## About
-
-MSc in Mathematical Modelling and Applied Analysis, Université Savoie Mont-Blanc.
-
-Background in optimal control, optimization and scientific computing, with a year in industry
-working on differentiable simulation and model predictive control in Python/JAX.
-
-Currently looking for engineering or research positions in modelling, scientific computing
-and image processing in the Rhône-Alpes region.
-
-<!-- ▼▼ À REMPLIR : ton email, et ton LinkedIn si tu en as un. ▼▼ -->
-
-📫 your.email@example.com
-
----
 
 ## License
 
