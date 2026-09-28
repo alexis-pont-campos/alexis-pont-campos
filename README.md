@@ -12,13 +12,9 @@ working code have to be made to fit together.
 
 ---
 
-**Projects**
 
-- [image-processing](https://github.com/YOUR-USERNAME/image-processing) — classical
-  image processing algorithms implemented from scratch in NumPy: filtering and
-  denoising, segmentation, mathematical morphology, edge detection.
 
-<!-- ▼ Ajoute une ligne par nouveau dépôt, même format : nom — une phrase, méthodes nommées. ▼ -->
+
 
 <details>
 <summary>Tools and topics</summary>
@@ -42,14 +38,6 @@ projects (including CIFRE), in modelling, scientific computing and image process
 
 
 
-# Image Processing
-
-Classical image processing algorithms implemented from scratch in Python — filtering and denoising, segmentation, mathematical morphology, and edge detection.
-
-Each folder is a self-contained study: the problem, the method, the implementation, and the results.
-
-<!-- ▼▼ À REMPLIR : mets ici une image large qui montre 3-4 de tes meilleurs résultats côte à côte.
-     C'est la première chose qu'on voit. Fais-la sous matplotlib (subplots) et exporte en PNG. ▼▼ -->
 
 <p align="center">
   <img src="figures/banner.png" width="90%">
@@ -57,14 +45,17 @@ Each folder is a self-contained study: the problem, the method, the implementati
 
 ---
 
-## Contents
+# Projects
+
+This section shows a part of my topic of interest in term of coding, from pure optimisation problem to aestetic image prossesing or stuff that i simply find interresting.
+Some of those sections are wildly inspired from the lectures and practical works i had in university, in particular **[Stéphane Breuils](https://github.com/sbreuils)** for image processing, **[Dorin Bucur](https://orcid.org/0000-0002-8331-8481)** and **[Laurent Vuillon](https://github.com/laurentvuillon)** for optimisation problems.
 
 <!-- ▼▼ À REMPLIR : remplace ces quatre lignes par tes vrais sujets de TP.
      Garde le format : dossier / une phrase / les méthodes nommées. ▼▼ -->
 
 | Study | What it does | Key methods |
 |---|---|---|
-| [01 — Filtering & denoising](01-filtering-and-denoising/) | Removing noise while preserving edges | Gaussian and median filters, bilateral filter, Fourier-domain filtering |
+| [01 — Image processing](01-filtering-and-denoising/) | Denoising, jpeg compression,  | Gaussian and median filters, bilateral filter, Fourier-domain filtering |
 | [02 — Traveller problem](traveller/) | | |
 | [03 — Other graphs optimisation problems](graphs/) | | |
 
