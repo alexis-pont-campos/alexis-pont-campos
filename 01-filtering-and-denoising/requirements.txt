@@ -1,0 +1,9 @@
+# Filtering and Denoising — pip install -r requirements.txt
+numpy>=2.0
+scipy>=1.13
+matplotlib>=3.9
+scikit-image>=0.24
+pillow>=10.0
+pooch>=1.8
+onnxruntime>=1.18
+notebook
