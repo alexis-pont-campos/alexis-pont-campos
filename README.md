@@ -1,5 +1,7 @@
 ### Alexis Pont-Campos
 
+*I'm currently editing my profil and adding new topics, dont consider this as a final version*
+
 I work on mathematical modelling, optimal control and scientific computing.
 
 MSc in Mathematical Modelling and Applied Analysis (Université Savoie Mont-Blanc).
