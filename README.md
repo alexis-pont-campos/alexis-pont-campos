@@ -101,9 +101,5 @@ python main.py
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT [LICENSE](LICENSE).
 
-<!-- ▼▼ Si certains TP contenaient du code de départ fourni par l'enseignant,
-     ajoute une ligne ici, par exemple :
-     "Starter code for study 02 was provided as part of a university course;
-      all algorithm implementations are my own." ▼▼ -->
