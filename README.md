@@ -41,9 +41,7 @@ projects (including CIFRE), in modelling, scientific computing and image process
 
 
 
-<p align="center">
-  <img src="figures/banner.png" width="90%">
-</p>
+
 
 ---
 
@@ -64,24 +62,7 @@ Some of those sections are wildly inspired from the lectures and practical works
 
 ---
 
-## Results
 
-<!-- ▼▼ À REMPLIR : 2 ou 3 comparaisons avant/après. Une image vaut tout le texte ci-dessus.
-     Si tu n'as qu'une figure, mets-en une seule — mieux vaut une bonne qu'un remplissage. ▼▼ -->
-
-**Denoising — Gaussian vs. bilateral filter**
-
-<p align="center">
-  <img src="figures/denoising-comparison.png" width="90%">
-</p>
-
-**Segmentation — Otsu vs. watershed**
-
-<p align="center">
-  <img src="figures/segmentation-comparison.png" width="90%">
-</p>
-
----
 
 ## Approach
 
