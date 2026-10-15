@@ -1,6 +1,5 @@
 ### Alexis Pont-Campos
 
-*I'm currently editing my profil and adding new topics, this is not the final version*
 
 I work on mathematical modelling, optimal control and scientific computing.
 
@@ -57,7 +56,7 @@ Some of those sections are wildly inspired from the lectures and practical works
 | [01 — Image processing](01-filtering-and-denoising/) | Denoising, jpeg compression,  | Gaussian and median filters, bilateral filter, Fourier-domain filtering |
 | [02 — Traveller problem](traveller/) | Optimal travel through random points | Elastic net and simulated annealing |
 | [03 — Other graphs optimisation problems](graphs/) | Optimal path and cut algorithms | Floyd, Dijtra, Simplex method|
-| [04 — Fluid simulation and shape optimisation ](fluid_sim/) | Simulate a 2D fluid and find an optimal nose cone  | discretization of the Navier-Stokes equations and optim of the parameted shape|
+| [04 — Fluid simulation and shape optimisation (ongoing project)](fluid_sim/) | Simulate a 2D fluid and find an optimal nose cone  | discretization of the Navier-Stokes equations and optim of the parameted shape|
 
 
 ---
