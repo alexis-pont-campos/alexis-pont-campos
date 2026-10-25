@@ -56,7 +56,11 @@ Some of those sections are wildly inspired from the lectures and practical works
 | [01 — Image processing](01-filtering-and-denoising/) | Denoising, jpeg compression,  | Gaussian and median filters, bilateral filter, Fourier-domain filtering |
 | [02 — Traveller problem](traveller/) | Optimal travel through random points | Elastic net and simulated annealing |
 | [03 — Other graphs optimisation problems](graphs/) | Optimal path and cut algorithms | Floyd, Dijtra, Simplex method|
+<<<<<<< HEAD
+| [04 — Fluid simulation and shape optimisation (ongoing)](fluid_sim/) | Simulate a 2D fluid and find an optimal nose cone  | discretization of the Navier-Stokes equations and optim of the parameted shape|
+=======
 | [04 — Fluid simulation and shape optimisation (ongoing project)](fluid_sim/) | Simulate a 2D fluid and find an optimal nose cone  | discretization of the Navier-Stokes equations and optim of the parameted shape|
+>>>>>>> 7d7720033e45345a6e5409d8d04f6876a58b3b73
 
 
 ---
