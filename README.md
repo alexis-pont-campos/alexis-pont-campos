@@ -93,13 +93,6 @@ cd image-processing
 pip install -r requirements.txt
 ```
 
-Each study runs independently:
-
-```bash
-cd 01-filtering-and-denoising
-python main.py
-```
-
 
 
 
