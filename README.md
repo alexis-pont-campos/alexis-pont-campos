@@ -88,7 +88,7 @@ Python 3.11 · NumPy · SciPy · Matplotlib · OpenCV (reference only)
 ## Running the code
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/image-processing.git
+git clone https://github.com/alexis-pont-campos/image-processing.git
 cd image-processing
 pip install -r requirements.txt
 ```
