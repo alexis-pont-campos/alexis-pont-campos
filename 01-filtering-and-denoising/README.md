@@ -88,38 +88,3 @@ quality; the remaining 0.01 dB is libjpeg's integer DCT.
 pip install numpy scipy matplotlib scikit-image pillow pooch onnxruntime
 jupyter notebook filtering_and_denoising.ipynb
 ```
-
-On first run, §6 downloads the MiDaS v2.1 small and Depth Anything V2 small weights (67 MB
-and 99 MB in ONNX format, cached by `pooch`) and the Middlebury motorcycle pair (cached by
-scikit-image). `onnxruntime` runs the networks on CPU — no PyTorch, no GPU — and is only
-needed for §6. `scipy` and Pillow are only used as references; scikit-image supplies the
-test images, the resize around the networks, and CLAHE. The whole notebook runs in about
-a minute on a laptop.
-
----
-
-## Scope
-
-Filters run as sliding windows, `O(k²)` per pixel; for large kernels the FFT path of §1
-wins, and the two agree. The Hough transform finds infinite lines only — no segments, no
-probabilistic variant. Section 5 assumes periodic boundaries and a known blur and noise
-level; the oracle Wiener uses the clean image's spectrum and is only there as a ceiling.
-The networks predict inverse depth up to scale and shift, so the 1.5–4.5 m range is
-chosen, not measured; the renderer does not inpaint what the foreground hides, which is
-where the novel views leave holes. No real focal stack exists for the motorcycle, so depth
-from focus reads one rendered from the stereo ground truth: a perfect lens with known
-focus distances, no focus breathing and no misalignment between shots. The JPEG codec is grayscale, without chroma subsampling or
-entropy coding — file sizes come from Pillow. CLAHE is imported from scikit-image.
-
-The thread worth pulling: every restoration in §5 is one fixed linear layer whose
-weights are set by a prior, and §3 shows the same layer learned from examples instead.
-Stack such layers with non-linearities — the max of §2 is one — and train them on
-(noisy, clean) pairs: that is a CNN denoiser, DnCNN (Zhang et al., 2017).
-
----
-
-The methods are classical. The test images come from scikit-image's `data` module — the
-motorcycle and its ground-truth disparity from the Middlebury 2014 stereo dataset. The
-depth networks are MiDaS v2.1 small (Ranftl et al., 2020) and Depth Anything V2 small
-(Yang et al., 2024), the latter through the ONNX export of the Depth-Anything-ONNX
-project.
