@@ -44,7 +44,7 @@ projects (including CIFRE), in modelling, scientific computing and image process
 
 ---
 
-# Projects
+# Showcase projects
 
 This section shows a part of my topic of interest in term of coding, from pure optimisation problem to aestetic image prossesing or stuff that i simply find interresting.
 Some of those sections are wildly inspired from the lectures and practical works i had in university, in particular **[Stéphane Breuils](https://github.com/sbreuils)** for image processing, **[Dorin Bucur](https://orcid.org/0000-0002-8331-8481)** and **[Laurent Vuillon](https://github.com/laurentvuillon)** for optimisation problems.
